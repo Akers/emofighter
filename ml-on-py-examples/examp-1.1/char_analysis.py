@@ -69,12 +69,26 @@ def fontWidthAnalysis(yd, xd):
     plt.plot(fontWidthData, xd, 'bo', label=u"字体宽度")
 
     # 画出拟合线
-    plt.plot(X,k*X+b,color="orange",label=u"字体宽度拟合",linewidth=2) 
+    plt.plot(k*X+b,X,color="orange",label=u"字体宽度拟合",linewidth=2) 
     
     # 分析字体高度
+    Y = np.array(fontHeightData)
+    X = np.array(xd)
+    r = leastsq(lambda p,x,y: func(p,x) - y, [1, 0], args=(X, Y))
+    # 计算结果中的r[0]为一个元组，为求得的k和b
+    k, b = r[0]
+    # 最后我们得出结论，拟合结果为y = x
+    print("k=",k,"b=",b, "r=", r)
+    # 画出数据点
+    plt.plot(fontHeightData, xd, 'co', label=u"字体高度")
+
+    # 画出拟合线
+    plt.plot(k*X+b, X,color="yellow",label=u"字体高度拟合",linewidth=2) 
+
+    # 所以最后得出了结论：
+    # 字体宽度 = 字号
+    # 字体高度 = 1.1939933259181095 * 字号 + 0.2597701149430962
     
-
-
 
 if __name__ == "__main__":
     main(sys.argv)
