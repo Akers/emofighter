@@ -3,7 +3,9 @@
 
 
 A powerful tool that helps you enjoy more fun when fighting your friends with emoticons.
+
 You can easily creat some emotion like this:
+
 ![Example1.1](https://github.com/Akers/emofighter/blob/master/wiki/resource/image/example/example1.1.png)
 
 ## Getting Started
