@@ -58,11 +58,12 @@ pipenv run python emofighter.py -t 哈哈哈哈哈哈哈
 
 ## Using Emofighter
 pipenv [OPTIONS] ARGS...
-OPTIONS:
- - -b background name
- - -f face name
-ARGS:
- - -t the text under the emofighter
+>**OPTIONS:**
+> - -b background name
+> - -f face name
+> 
+>**ARGS:**
+> - -t the text under the emofighter
  
 
 ## Running the tests
