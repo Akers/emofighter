@@ -40,22 +40,31 @@ Install Pipenv
 pip3 install pipenv
 ```
 
-Init a project, the pipenv will read all depended packages from Pipfile file.
+**Init a project, the pipenv will read all depended packages from Pipfile file.**
 ```
 pipenv install
 ```
-
-Enter pipenv shell
+**Run the script**
 ```
+#Enter pipenv shell
 pipenv shell
+#run script
+python emofighter.py -t 哈哈哈哈哈哈哈
+```
+**Or**
+```
+pipenv run python emofighter.py -t 哈哈哈哈哈哈哈
 ```
 
-Run the script
-```
-python emofighter.py -m 哈哈哈哈哈哈哈
-```
 ## Using Emofighter
-
+**pipenv run python emofighter.py [OPTIONS] ARGS...**
+>**OPTIONS:**
+> - -b background name
+> - -f face name
+> 
+>**ARGS:**
+> - -t the text under the emofighter
+ 
 
 ## Running the tests
 
