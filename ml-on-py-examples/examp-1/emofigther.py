@@ -24,23 +24,26 @@ def main(argv):
     font = ImageFont.truetype('./resources/msyh.ttc', 30)
     #底图上的10,200位置写入文字
     draw.text((10, 200), argv[1],fill='black', font=font)
-    #保存图片
     del draw
     #如果是win32系统，可以直接怼到剪切板里
-    print(platform.platform())
     if 'Windows' in platform.platform() or 'windows' in platform.platform():
+        # 打开字节流
         output = BytesIO()
-        clip.OpenClipboard() #打开剪贴板
-        clip.EmptyClipboard()  #先清空剪贴板
+        # 打开剪贴板
+        clip.OpenClipboard() 
+        # 先清空剪贴板
+        clip.EmptyClipboard()
+        # 将图片保存到字节流
         target.save(output, format="BMP")
+        # 去掉字节流中的前14个字符（BMP位图文件头）
         data = output.getvalue()[14:]
-        clip.SetClipboardData(win32con.CF_DIB, data)  #将图片放入剪贴板
+        # 将图片放入剪贴板，这里是不带文件头的数据
+        clip.SetClipboardData(win32con.CF_DIB, data) 
         clip.CloseClipboard()
         output.close()
-    else:
-        target.save('output/facing.png')
-
-    #调试用
+    #保存图片
+    target.save('output/facing.png')
+    #调试用，用pyplot可以方便的以弹出窗的形式展示可视化内容
     # plt.figure("生成表情包")
     # plt.imshow(target)
     # plt.show()
