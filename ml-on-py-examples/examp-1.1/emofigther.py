@@ -74,15 +74,25 @@ def draw_text(text, image, off_set=(0, 200), allign='center'):
     textLen = txtSize[0]
     fontSize = DEFAULT_FONT_SIZE
     # 方法1：笨方法，不断减小字号，直到塞得下
-    while (CONST_IMG_WIDTH <= textLen + 2*off_set[0]) and fontSize >= 10:
-        fontSize -= 1
-        imageFont = ImageFont.truetype('./resources/msyh.ttc', fontSize)
-        textLen = draw.textsize(text, imageFont)[0]
-        print("当前字号{}，文本宽度{}".format(fontSize, textLen))
+    # while (CONST_IMG_WIDTH <= textLen + 2*off_set[0]) and fontSize >= 10:
+    #     fontSize -= 1
+    #     imageFont = ImageFont.truetype('./resources/msyh.ttc', fontSize)
+    #     textLen = draw.textsize(text, imageFont)[0]
+    #     print("当前字号{}，文本宽度{}".format(fontSize, textLen))
     # 问题1：如果减小到最小字号，仍然塞不下呢？如何处理换行问题？多少长度下需要换行？
     # 问题2：是否有更优雅的方法呢？
     # 方法2：针对上面两个问题，再使用方法1这种简单粗暴的方式已经难以满足
-    # 根据使用的字体，计算出单个字符的宽度，然后对文本所占的面积进行预估呢
+    # 通过使用数据分析手段，我们可以得出，每个字的宽和高与字号之间有以下关系
+    # width = fontSize
+    # heght = 1.1939933259181095 * fontSize + 0.2597701149430962
+    wk = 1.1939933259181095
+    wb = 0.2597701149430962
+    # 面积预估
+    fm = fontSize * (wk * fontSize) + wb
+    while fontSize * (wk * fontSize) + wb > MAX_TXT_HEIGH * (CONST_IMG_WIDTH - 2*off_set[0]):
+        fontSize -= 1
+
+    imageFont = ImageFont.truetype('./resources/msyh.ttc', fontSize)
 
     # 计算x坐标
     pos_x = {
