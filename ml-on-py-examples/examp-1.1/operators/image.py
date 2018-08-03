@@ -34,7 +34,7 @@ def draw_emo(bg, face, txt):
     # 加入文本
     # target = draw_text(txt, target)
     # target = draw_text_v1(txt, target, off_set=200)
-    target = draw_text_v2(txt, target, off_set=(10, 200), allign='right')
+    target = draw_text_v2(txt, target, off_set=(10, 200), allign='center')
     return target
 
 def draw_text(text, image):
