@@ -29,8 +29,8 @@ def draw_emo(bg, face, txt):
     target.paste(background, (0, 0))
     # 导入表情
     faceImg = Image.open(face)
-
-    target.paste(bg_trans(faceImg, (255, 255, 255)), (62, 37))
+    faceImg = bg_trans(faceImg, (220, 220, 220))
+    target.paste(faceImg, (62, 37), mask=faceImg.split()[3])
 
     # 加入文本
     # target = draw_text(txt, target)
