@@ -28,7 +28,7 @@ CONFIGS={
             },
             {
                 "name":"point",
-                "path":"".join([APP_CTX["resources"], "/background/pander/point.png"]),
+                "path":"".join([APP_CTX["resources"], "/background/pander/point.jpg"]),
                 "command":"point"
             }
         ],
