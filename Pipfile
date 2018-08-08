@@ -8,6 +8,8 @@ pillow = "*"
 "pywin32" = "*"
 matplotlib = "*"
 scipy = "*"
+opencv-python = {path = "D:/Soft/Installers/dev/python/opencv_python-3.4.2-cp37-cp37m-win32.whl"}
+imutils = "*"
 
 [dev-packages]
 pylint = "*"

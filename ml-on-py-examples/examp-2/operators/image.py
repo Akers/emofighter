@@ -300,8 +300,3 @@ def draw_text_v4(text, image, off_set=(0, 200), allign='center'):
     draw.text(pos, text, fill='black', font=imageFont)
     del draw
     return image
-
-
-
-
-
