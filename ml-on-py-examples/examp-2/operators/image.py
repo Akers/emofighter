@@ -76,7 +76,6 @@ def bg_trans(img, color=(220,220,220)):
     pixdata = img.load()
     for y in range(img.size[1]):
         for x in range(img.size[0]):
-            print(pixdata[x,y])
             if pixdata[x,y][0]>color[0] and pixdata[x,y][1]>color[1] and pixdata[x,y][2]>color[2] and pixdata[x,y][3]>0:
                 pixdata[x, y] = (255, 255, 255, 0)
 

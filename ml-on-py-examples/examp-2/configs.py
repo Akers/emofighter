@@ -14,7 +14,8 @@ CONFIGS={
             {
                 "name":"cry",
                 "path":"".join([APP_CTX["resources"], "/background/pander/cry.png"]),
-                "command":"cry"
+                "command":"cry",
+                "key_words":["你","你们","you","your"]
             },
             {
                 "name":"default",
@@ -24,12 +25,14 @@ CONFIGS={
             {
                 "name":"doubt",
                 "path":"".join([APP_CTX["resources"], "/background/pander/doubt.png"]),
-                "command":"doubt"
+                "command":"doubt",
+                "key_words":["?","？","什么","不对","不科学"]
             },
             {
                 "name":"point",
                 "path":"".join([APP_CTX["resources"], "/background/pander/point.jpg"]),
-                "command":"point"
+                "command":"point",
+                "key_words":["你","你们","you","your"]
             }
         ],
         "faces":[
