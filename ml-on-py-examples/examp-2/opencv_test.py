@@ -207,22 +207,19 @@ image_result2 = image.copy()
 roi = image_result2[rs:re, cs:ce]
 # cv2.imshow("roi2: ", roi)
 face_gray = cv2.cvtColor(face, cv2.COLOR_BGR2GRAY)
-mask = cv2.threshold(face_gray, 0, 255,cv2.THRESH_BINARY+cv2.THRESH_OTSU)[1]
-mask_inv = cv2.bitwise_not(mask)
 # cv2.imshow("mask: ", mask)
 # cv2.imshow("mask: ", mask_inv)
 # mask_bg = cv2.bitwise_and(roi,roi,mask=mask)
 # mask_fg = cv2.add(face,face,mask=mask_inv)
 # cv2.imshow("mask_bg", mask_bg)
-cv2.imshow("mask", mask)
-cv2.imshow("add: ", cv2.add(face, roi))
-cv2.imshow("add with mask: ", cv2.add(face, roi, mask=mask))
-cv2.imshow("bitwise_xor: ", cv2.bitwise_xor(face, roi))
-cv2.imshow("bitwise_xor with mask: ", cv2.bitwise_xor(face, roi, mask=mask))
-cv2.imshow("bitwise_or: ", cv2.bitwise_or(face, roi))
-cv2.imshow("bitwise_or with mask: ", cv2.bitwise_or(face, roi, mask=mask))
+# cv2.imshow("mask", mask)
+# cv2.imshow("add: ", cv2.add(face, roi))
+# cv2.imshow("add with mask: ", cv2.add(face, roi, mask=mask))
+# cv2.imshow("bitwise_xor: ", cv2.bitwise_xor(face, roi))
+# cv2.imshow("bitwise_xor with mask: ", cv2.bitwise_xor(face, roi, mask=mask))
+# cv2.imshow("bitwise_or: ", cv2.bitwise_or(face, roi))
+# cv2.imshow("bitwise_or with mask: ", cv2.bitwise_or(face, roi, mask=mask))
 cv2.imshow("bitwise_and: ", cv2.bitwise_and(face, roi))
-cv2.imshow("bitwise_and with mask: ", cv2.bitwise_and(face, roi, mask=mask))
 # 看来效果最好的是bitwise_and
 # 为什么呢？
 # 1. 我们的是二值化的图像（黑白），因此对于每个像素，会有以下几种情况（1为白，0为黑）：0&&0=0 1&&0=0 1&&1=1
@@ -231,8 +228,13 @@ cv2.imshow("bitwise_and with mask: ", cv2.bitwise_and(face, roi, mask=mask))
 # cv2.imshow("result2: ", dst)mask_inv
 # 但是如果表情图或背景图不是纯色呢
 
-
-
-
-
+# 尝试1：把表情图做成模板
+mask = cv2.threshold(face_gray, 0, 255,cv2.THRESH_BINARY+cv2.THRESH_OTSU)[1]
+mask_inv = cv2.bitwise_not(mask)
+cv2.imshow("mask: ", mask)
+cv2.imshow("mask_inv: ", mask_inv)
+image_result3 = image.copy()
+roi2 = image_result3[rs:re, cs:ce]
+face.copyTo(roi2, mask=mask_inv)
+cv2.imshow("roi2: ", roi2)
 cv2.waitKey(0)
