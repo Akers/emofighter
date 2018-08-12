@@ -23,25 +23,12 @@ def main(argv):
     bgPath = bgPath[0]["path"] if len(bgPath) > 0 else configs.CONFIGS["emo"]["backgrounds"][0]["path"]
     facePath = facePath[0]["path"] if len(facePath) > 0 else configs.CONFIGS["emo"]["faces"][0]["path"]
     text = args.text
-    operators.image.draw_emo_v2(bgPath, facePath, text)
-
-
-    
-    print("creating emo:")
-    print("bgPath:", bgPath)
-    print("facePath:", facePath)
-    print("text:", text)
-    print(cv2.__version__)
-
-    print(args)
+    image = operators.image.draw_emo_v2(bgPath, facePath, text)
     # 创建表情图
-    # image = operators.image.draw_emo('./resources/background/pander/default.png', './resources/face/jgz/laugth.png', argv[1])
-    # output = BytesIO()
-    # image.save(output, format="BMP")
-    # operators.clipboard.add_bmp(output)
-    # image.save('output/facing.png')
-
-    # 调试用
+    output = BytesIO()
+    image.save(output, format="BMP")
+    operators.clipboard.add_bmp(output)
+    image.save('output/facing.png')
     # plt.figure("生成表情包")
     # plt.imshow(target)
     # plt.show()

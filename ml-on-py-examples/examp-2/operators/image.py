@@ -79,11 +79,6 @@ def draw_emo_v2(bg, face, txt):
     areas_s_idx = contours_sort_idx(face_bg_cnts)
     rect = cv2.minAreaRect(face_bg_cnts[areas_s_idx[0][0]])
     box = cv2.boxPoints(rect)
-    print("old_box", box)
-    cv2.drawContours(image, [numpy.int0(box)], 0, (255, 0, 0), 2)
-    cv2.drawContours(image, face_bg_cnts, areas_s_idx, (0,0,255), 2)
-    cv2.imshow('the face insert area',image)
-    cv2.waitKey()
     # 将box缩小一下，让图片插入的位置更好看
     offset = 15
     box[0][0] = box[0][0] + offset
@@ -94,15 +89,8 @@ def draw_emo_v2(bg, face, txt):
     box[2][1] = box[2][1] + offset
     box[3][0] = box[3][0] - offset
     box[3][1] = box[3][1] - offset
-    cv2.drawContours(image, [numpy.int0(box)], 0, (0, 255, 0), 2)
-    print("new_box", box)
     roi = bg_img[int(box[1][1]):int(box[0][1]), int(box[0][0]):int(box[2][0])]
-    print("f_img.shape", f_img.shape)
-    print("roi.shape: ", roi.shape[-2::-1])
     f_img_resize = cv2.resize(f_img, roi.shape[-2::-1])
-    print("f_img_resize.shape", f_img_resize.shape)
-    cv2.imshow('f_img_resize', f_img_resize)
-    cv2.waitKey()
     # 单纯的add对这种黑白图片，效果很糟糕
     # roi = cv2.add(roi, f_img_resize)
     # 读入表情的灰度图，方便进行处理
@@ -113,15 +101,18 @@ def draw_emo_v2(bg, face, txt):
     mask_inv = cv2.bitwise_not(mask)
     # 背景图，去掉表情中的黑色部分的像素
     img1_bg = cv2.bitwise_and(roi, roi, mask = mask)
-    cv2.imshow('img1_bg', img1_bg)
     # 表情图，去掉图片中的白色部分
     img2_fg = cv2.bitwise_and(f_img_resize, f_img_resize, mask = mask_inv)
-    cv2.imshow('img2_fg', img2_fg)
     dst = cv2.add(img1_bg, img2_fg)
     bg_img[int(box[1][1]):int(box[0][1]), int(box[0][0]):int(box[2][0])] = dst
-    cv2.imshow('result', bg_img)
-    cv2.waitKey()
-
+    image_result = Image.fromarray(cv2.cvtColor(bg_img,cv2.COLOR_BGR2RGB))
+    # 创建底图
+    target = Image.new(
+        'RGBA', (CONST_IMG_WIDTH, CONST_IMG_HEIGH), (255, 255, 255, 255))
+    # 表情背景贴到底图上
+    target.paste(image_result, (0, 0))
+    target = draw_text_v4(txt, target, off_set=(5, 200), allign='center')
+    return target
 
 
 
