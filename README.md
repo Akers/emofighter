@@ -49,21 +49,21 @@ pipenv install
 #Enter pipenv shell
 pipenv shell
 #run script
-python emofighter.py -t 哈哈哈哈哈哈哈
+python emofigther.py -f awkward -bg default -t hhhhhhhhhhhhhh
 ```
 **Or**
 ```
-pipenv run python emofighter.py -t 哈哈哈哈哈哈哈
+pipenv run python emofigther.py -f diss -bg cry -t hhhhhhhhhhhhhh
 ```
 
 ## Using Emofighter
-**pipenv run python emofighter.py [OPTIONS] ARGS...**
+**usage: emofigther.py [-h] [-f FACE] [-bg BACKGROUND] [-t TEXT]**
 >**OPTIONS:**
-> - -b background name
-> - -f face name
-> 
->**ARGS:**
-> - -t the text under the emofighter
+>-h, --help            show this help message and exit
+>-f FACE, --face FACE  select the face in [awkward|diss|laugth|smail]
+>-bg BACKGROUND, --background BACKGROUND
+>                        select the background in [cry|default|doubt|point]
+>-t TEXT, --text TEXT  the text on emoticon
  
 
 ## Running the tests
