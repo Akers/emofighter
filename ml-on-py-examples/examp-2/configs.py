@@ -6,7 +6,7 @@ import os
 
 APP_CTX={
     "app_root": os.getcwd(),
-    "resources": os.path.sep.join([os.getcwd(), "/resources"])
+    "resources": os.path.sep.join([os.getcwd(), "resources"])
 }
 CONFIGS={
     "emo":{
@@ -28,7 +28,7 @@ CONFIGS={
             },
             {
                 "name":"point",
-                "path":"".join([APP_CTX["resources"], "/background/pander/point.png"]),
+                "path":"".join([APP_CTX["resources"], "/background/pander/point.jpg"]),
                 "command":"point"
             }
         ],
