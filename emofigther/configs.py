@@ -12,14 +12,14 @@ CONFIGS={
     "emo":{
         "backgrounds":[
             {
-                "name":"cry",
-                "path":"".join([APP_CTX["resources"], "/background/pander/cry.png"]),
-                "command":"cry"
-            },
-            {
                 "name":"default",
                 "path":"".join([APP_CTX["resources"], "/background/pander/default.png"]),
                 "command":"default"
+            },
+            {
+                "name":"cry",
+                "path":"".join([APP_CTX["resources"], "/background/pander/cry.png"]),
+                "command":"cry"
             },
             {
                 "name":"doubt",
@@ -33,6 +33,11 @@ CONFIGS={
             }
         ],
         "faces":[
+            {
+                "name":"smail",
+                "path":"".join([APP_CTX["resources"], "/face/jgz/smail.png"]),
+                "command":"smail"
+            },
             {
                 "name": "awkward",
                 "path": "".join([APP_CTX["resources"], "/face/jgz/awkward.png"]),
@@ -48,11 +53,6 @@ CONFIGS={
                 "path":"".join([APP_CTX["resources"], "/face/jgz/laugth.png"]),
                 "command":"laugth"
             },
-            {
-                "name":"smail",
-                "path":"".join([APP_CTX["resources"], "/face/jgz/smail.png"]),
-                "command":"smail"
-            }
         ]
     }
 }
