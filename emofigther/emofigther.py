@@ -4,19 +4,17 @@ import argparse
 import getopt
 import platform
 import sys
+from getopt import getopt
 from io import BytesIO
+
+import cv2
 
 from PIL import Image, ImageDraw, ImageFont
 
 import configs
-import cv2
 import operators.clipboard
-import operators.emofile
 import operators.image
 
-
-def usage():
-    print("Usage: python emofigther.py -b [background name] -f [face name] -t [texts]")
 
 def main(argv):
     args = menu()

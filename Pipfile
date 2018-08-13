@@ -1,5 +1,5 @@
 [[source]]
-url = "http://mirrors.aliyun.com/pypi/simple/"
+url = "https://pypi.tuna.tsinghua.edu.cn/simple"
 verify_ssl = true
 name = "pypi"
 
@@ -8,8 +8,7 @@ pillow = "*"
 "pywin32" = "*"
 matplotlib = "*"
 scipy = "*"
-opencv-python = {path = "D:/Soft/Installers/dev/python/opencv_python-3.4.2-cp37-cp37m-win32.whl"}
-imutils = "*"
+opencv-python = "*"
 
 [dev-packages]
 pylint = "*"

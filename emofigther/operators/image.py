@@ -31,8 +31,7 @@ def draw_emo(bg, face, txt):
     target.paste(background, (0, 0))
     # 导入表情
     faceImg = Image.open(face)
-    faceImg = bg_trans(faceImg, (220, 220, 220))
-    target.paste(faceImg, (62, 37), mask=faceImg.split()[3])
+    target.paste(faceImg, (62, 37))
 
     # 加入文本
     # target = draw_text(txt, target)
@@ -152,22 +151,6 @@ def draw_text(text, image):
     draw.text((10, 200), text, fill='black', font=imageFont)
     del draw
     return image
-
-def bg_trans(img, color=(220,220,220)):
-    """背景色设置透明
-    Args:
-        image: 待处理图片
-        color: 待处理颜色,(R,G,B)
-    """
-    # 转换成RGBA模式（支持透明图层）
-    img = img.convert("RGBA")
-    pixdata = img.load()
-    for y in range(img.size[1]):
-        for x in range(img.size[0]):
-            if pixdata[x,y][0]>color[0] and pixdata[x,y][1]>color[1] and pixdata[x,y][2]>color[2] and pixdata[x,y][3]>0:
-                pixdata[x, y] = (255, 255, 255, 0)
-
-    return img
 
 def draw_text_v1(text, image, off_set=200):
     """强化版绘制文字v1，让文字在x轴上居中
@@ -387,3 +370,8 @@ def draw_text_v4(text, image, off_set=(0, 200), allign='center'):
     draw.text(pos, text, fill='black', font=imageFont)
     del draw
     return image
+
+
+
+
+
