@@ -42,14 +42,10 @@ pipenv run python emofigther.py -f diss -bg cry -t hhhhhhhhhhhhhh
 ## Using Emofighter
 **usage: emofigther.py [-h] [-f FACE] [-bg BACKGROUND] -t TEXT**
 >**OPTIONS:**
-
->-h, --help            show this help message and exit
-
->-f FACE, --face FACE  select the face in [awkward|diss|laugth|smail]
-
->-bg BACKGROUND, --background BACKGROUND select the background in [cry|default|doubt|point]
-
->-t TEXT, --text TEXT  the text on emoticon
+>> **-h, --help**            show this help message and exit
+>> **-f FACE, --face FACE**  select the face in [awkward|diss|laugth|smail]
+>> **-bg BACKGROUND, --background BACKGROUND** select the background in [cry|default|doubt|point]
+>> **-t TEXT, --text TEXT**  the text on emoticon
  
 
 ## Running the tests
