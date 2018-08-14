@@ -1,5 +1,5 @@
 # Project Emofighter
-![PyPI - Python Version](https://img.shields.io/pypi/pyversions/Django.svg) 
+![PyPI - Python Version](https://img.shields.io/pypi/pyversions/Django.svg) ![pipenv - Version](https://img.shields.io/badge/pipenv-2018.7.1-blue.svg) ![opencv-python Version](https://img.shields.io/badge/opencv--python-3.x-green.svg) ![pillow version](https://img.shields.io/badge/Pillow-5.2.0-green.svg) ![pywin32 version](https://img.shields.io/badge/pywin32-2.2.3-green.svg) ![matplotlib version](https://img.shields.io/badge/matplotlib%20-2.2.3-green.svg)
 
 
 A powerful tool that helps you enjoy more fun when fighting your friends with emoticons.
