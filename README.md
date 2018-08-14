@@ -12,38 +12,21 @@ You can easily creat some emotion like this:
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
-### Prerequisites
-
-Here is the packages the project emofighter is based on:
-
- - pillow
- ```
- pip install pillow
- ```
- - pywin32
- ```
- pip install pywin32
- ```
- - matplotlib
- ```
- pip install matplotlib
- ```
-
-
 ### Installing
 
-Pipenv is the package and virtual environment manage tools for these project, you can see more about it in [HERE](https://github.com/pypa/pipenv)
-
-Install Pipenv
-
+We using [pipenv](https://github.com/pypa/pipenv) for our package management. So we can install depends with pipenv
+1. Install pipenv(Skips this when you aleady isntalled):
 ```
 pip3 install pipenv
 ```
-
+2. Install depended packages with pipenv:
 **Init a project, the pipenv will read all depended packages from Pipfile file.**
 ```
 pipenv install
 ```
+> Pipenv is the package and virtual environment manage tools for these project, you can see more about it in [HERE](https://github.com/pypa/pipenv)
+
+
 **Run the script**
 ```
 #Enter pipenv shell
@@ -57,12 +40,15 @@ pipenv run python emofigther.py -f diss -bg cry -t hhhhhhhhhhhhhh
 ```
 
 ## Using Emofighter
-**usage: emofigther.py [-h] [-f FACE] [-bg BACKGROUND] [-t TEXT]**
+**usage: emofigther.py [-h] [-f FACE] [-bg BACKGROUND] -t TEXT**
 >**OPTIONS:**
+
 >-h, --help            show this help message and exit
+
 >-f FACE, --face FACE  select the face in [awkward|diss|laugth|smail]
->-bg BACKGROUND, --background BACKGROUND
->                        select the background in [cry|default|doubt|point]
+
+>-bg BACKGROUND, --background BACKGROUND select the background in [cry|default|doubt|point]
+
 >-t TEXT, --text TEXT  the text on emoticon
  
 
