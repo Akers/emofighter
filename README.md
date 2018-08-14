@@ -40,7 +40,7 @@ pipenv run python emofigther.py -f diss -bg cry -t hhhhhhhhhhhhhh
 ```
 
 ## Using Emofighter
-**usage: emofigther.py [-h] [-f FACE] [-bg BACKGROUND] -t TEXT**
+**emofigther.py [-h] [-f {smail,awkward,diss,laugth}] [-bg {default,cry,doubt,point}] -t TEXT**
 >**OPTIONS:**
 >>
 >> **-h, --help**            show this help message and exit
@@ -51,6 +51,53 @@ pipenv run python emofigther.py -f diss -bg cry -t hhhhhhhhhhhhhh
 >>
 >> **-t TEXT, --text TEXT**  the text on emoticon
  
+### More configurations
+All configurations is located in configs.py
+#### APP_CTX
+```python
+APP_CTX={
+    "app_root": os.getcwd(), # Configs the root path of scrpit main workspace PLEASE DO NOT MODIFIY IT NOT NECESSARY 
+    "resources": "resources" # Configs the resource path
+}
+```
+#### CONFIGS
+##### emo
+the emo configs the face and backgrounds of emoticon
+```python
+"backgrounds":[ # configs a background list for emotion creation
+    {
+        # it just a name
+        "name":"default",
+        # the image path, using get_resource("") when relatived the resources path or a absolute path as well.
+        "path":get_resource("/background/pander/default.png"),
+        # the command of the resource, same as the value of "-f" option like "emofigther.py -f default" etc.
+        "command":"default"
+    },
+    # ...other backgrounds...
+],
+"faces":[ # configs a face list for emotion creation
+    {
+        # it just a name
+        "name":"smail",
+        # the image path, using get_resource("") when relatived the resources path or a absolute path as well.
+        "path":get_resource("/face/jgz/smail.png"),
+        # the command of the resource, same as the value of "-bg" option like "emofigther.py -bg smail" etc.
+        "command":"smail"
+    },
+    # ...other faces...
+]
+```
+##### Customizing Resources
+you can create your own background image just flows these rules:
+1. 250 pixel width
+2. A circle like area in wite [RGB(255,255,255)]
+here is an example:(https://github.com/Akers/emofighter/blob/master/emofigther/resources/background/pander/doubt.png)
+
+and face image just flows these rules:
+1. with a wite background [RGB(255,255,255)].
+2. put the face in the center as you can.
+3. see the rule 1.
+here is an example:(https://github.com/Akers/emofighter/blob/master/emofigther/resources/face/jgz/diss.png)
 
 ## Running the tests
 

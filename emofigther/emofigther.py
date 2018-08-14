@@ -38,13 +38,16 @@ def menu():
     """CLI菜单定义
     """
     parser = argparse.ArgumentParser()
+    bg_config_cmds = list(map(lambda x: x["command"], configs.CONFIGS["emo"]["backgrounds"]))
+    faces_config_cmds = list(map(lambda x: x["command"], configs.CONFIGS["emo"]["faces"]))
+
     # 可选参数
     parser.add_argument("-f", "--face"
-    , choices=['awkward', 'diss', 'laugth', 'smail']
-    , help="select the face in [awkward|diss|laugth|smail]")
+    , choices=faces_config_cmds
+    , help="select the face to use")
     parser.add_argument("-bg", "--background"
-    , choices=['cry', 'default', 'doubt', 'point']
-    , help="select the background in [cry|default|doubt|point]")
+    , choices=bg_config_cmds
+    , help="select the background to use")
     # 必须参数
     requiredNamed = parser.add_argument_group('required arguments')
     requiredNamed.add_argument("-t", "--text", help="the text on emoticon", required=True)
