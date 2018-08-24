@@ -91,13 +91,17 @@ the emo configs the face and backgrounds of emoticon
 you can create your own background image just flows these rules:
 1. 250 pixel width
 2. A circle like area in wite [RGB(255,255,255)]
-here is an example:(https://github.com/Akers/emofighter/blob/master/emofigther/resources/background/pander/doubt.png)
+here is an example:
+
+![Example1.2.3.4.1](https://github.com/Akers/emofighter/blob/master/emofigther/resources/background/pander/doubt.png)
 
 and face image just flows these rules:
 1. with a wite background [RGB(255,255,255)].
 2. put the face in the center as you can.
 3. see the rule 1.
-here is an example:(https://github.com/Akers/emofighter/blob/master/emofigther/resources/face/jgz/diss.png)
+here is an example:
+
+![Example1.2.3.4.2](https://github.com/Akers/emofighter/blob/master/emofigther/resources/face/jgz/diss.png)
 
 ## Running the tests
 
