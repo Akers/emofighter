@@ -85,7 +85,8 @@ def draw_emo(bg, face, txt):
         'RGBA', (CONST_IMG_WIDTH, CONST_IMG_HEIGH), (255, 255, 255, 255))
     # 表情背景贴到底图上
     target.paste(image_result, (0, 0))
-    target = draw_text(txt, target, off_set=(5, 200), allign='center')
+    # 计算文本插入y坐标
+    target = draw_text(txt, target, off_set=(5, bg_img.shape[0]), allign='center')
     return target
 
 def contours_sort_idx(contours):
@@ -156,8 +157,3 @@ def draw_text(text, image, off_set=(0, 200), allign='center'):
     draw.text(pos, text, fill='black', font=imageFont)
     del draw
     return image
-
-
-
-
-
