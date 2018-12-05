@@ -140,8 +140,8 @@ Add additional notes about how to deploy this on a live system
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
 
-## Acknowledgments
+## 有生之年的TODOs
 
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
+* 增加对配文的语义分析、情感分析，自动生成表情图
+* 增加WebApi
+* 增加Web交互UI
