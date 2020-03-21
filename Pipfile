@@ -9,6 +9,8 @@ pillow = "*"
 matplotlib = "*"
 scipy = "*"
 opencv-python = "*"
+thulac = "*"
+jieba = "*"
 
 [dev-packages]
 pylint = "*"
