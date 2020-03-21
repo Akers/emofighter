@@ -96,7 +96,7 @@ here is an example:
 ![Example1.2.3.4.1](https://github.com/Akers/emofighter/blob/master/emofigther/resources/background/pander/doubt.png)
 
 and face image just flows these rules:
-1. with a wite background [RGB(255,255,255)].
+1. with a wite background as wite as you can.
 2. put the face in the center as you can.
 3. see the rule 1.
 here is an example:
