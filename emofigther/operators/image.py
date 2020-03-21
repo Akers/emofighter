@@ -33,16 +33,17 @@ def draw_emo(bg, face, txt):
     # 将熊猫弄成白色
     th_bg_inv = cv2.bitwise_not(th_bg)
     # 找轮廓
-    image,cnts,hierarchy = cv2.findContours(th_bg_inv,cv2.RETR_EXTERNAL,cv2.CHAIN_APPROX_SIMPLE)
+    cnts,hierarchy = cv2.findContours(th_bg_inv,cv2.RETR_EXTERNAL,cv2.CHAIN_APPROX_SIMPLE)
     areas_s_idx = contours_sort_idx(cnts)
     bg_mask = th_bg_inv.copy()
     # 将熊猫区域内填充黑色，形成mask
-    cv2.drawContours(bg_mask, cnts, areas_s_idx[0], (255,255,255), cv2.FILLED)
+    print("cnts: {cnts}, areas_s_idx: {areas_s_idx}".format(cnts = cnts, areas_s_idx = areas_s_idx))
+    cv2.drawContours(bg_mask, cnts, areas_s_idx[0][0], (255,255,255), cv2.FILLED)
     # bg_mask = cv2.bitwise_not(bg_mask)
     # 使用下面的方式进行抠图，把原图与一个黑色的图片叠加，mask为蒙版，蒙版中白色的地方会进行add，黑色区域的像素会被删除（变成黑色）
     face_bg_cntimg=cv2.add(th_bg, th_bg, mask=bg_mask)
     # 产生的face_cntimg中，只有表情所在的轮廓是白的，其他都是黑的，可能存在噪点，通过面积排序去除干扰
-    image,face_bg_cnts,hierarchy = cv2.findContours(face_bg_cntimg,cv2.RETR_EXTERNAL,cv2.CHAIN_APPROX_SIMPLE)
+    face_bg_cnts,hierarchy = cv2.findContours(face_bg_cntimg,cv2.RETR_EXTERNAL,cv2.CHAIN_APPROX_SIMPLE)
     image = bg_img.copy()
     areas_s_idx = contours_sort_idx(face_bg_cnts)
     rect = cv2.minAreaRect(face_bg_cnts[areas_s_idx[0][0]])
